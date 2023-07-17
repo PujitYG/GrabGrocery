@@ -1,0 +1,29 @@
+package com.microservice.authservice.DTO;
+
+public class ExceptionDTO {
+	
+	private String error;
+	private Integer statusCode;
+	
+	
+	public String getBody() {
+		return error;
+	}
+	public void setBody(String body) {
+		this.error = body;
+	}
+	public Integer getStatusCode() {
+		return statusCode;
+	}
+	public void setStatusCode(Integer statusCode) {
+		this.statusCode = statusCode;
+	}
+	@Override
+	public String toString() {
+		return "ExceptionDTO [body=" + error + ", statusCode=" + statusCode + "]";
+	}
+	
+	
+	
+
+}

@@ -1,0 +1,24 @@
+package com.microservice.authservice.Exception;
+
+import org.springframework.http.ResponseEntity;
+
+import com.microservice.authservice.DTO.ExceptionDTO;
+
+public class UserAlreadyExistException extends Exception implements ExceptionResponseEntity {
+	
+	public UserAlreadyExistException(String message) {
+		super(message);
+	}
+
+	@Override
+	public ResponseEntity<ExceptionDTO> getResponseEntity() {
+		ExceptionDTO dto = new ExceptionDTO();
+		dto.setBody(this.getMessage());
+		dto.setStatusCode(409);
+		return ResponseEntity.
+				status(dto.getStatusCode())
+				.body(dto);
+	}
+	
+	
+}

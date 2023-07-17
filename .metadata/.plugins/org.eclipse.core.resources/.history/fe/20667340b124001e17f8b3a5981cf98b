@@ -1,0 +1,8 @@
+package com.microservice.authservice.DTO;
+
+public class ExceptionDTO {
+	
+	private String body;
+	private Integer statusCode;
+
+}

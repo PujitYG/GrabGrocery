@@ -1,0 +1,45 @@
+package com.microservice.authservice.Config;
+
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+
+import com.microservice.authservice.DTO.ExceptionDTO;
+import com.microservice.authservice.Entity.UserAuthDetails;
+import com.microservice.authservice.Exception.UserNotFoundException;
+import com.microservice.authservice.repository.AuthRepository;
+
+@Component
+public class ApplicationUserDetailsService implements UserDetailsService {
+
+	@Autowired
+	private AuthRepository authRepository;
+	
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UserNotFoundException {
+		Optional<UserAuthDetails> user = authRepository.findByUsername(username);
+		
+		ExceptionDTO dto = new ExceptionDTO();
+		dto.setError("Forbidden");
+		dto.setMessage("user already exists");
+		dto.setTimeStamp(LocalDateTime.now());
+		dto.setStatusCode(401);
+		
+		UserAuthDetails userAuthDetails;
+			userAuthDetails = user.orElseThrow(()->
+					new UserNotFoundException(dto));
+
+		
+		ApplicationUserDetails aud = new 
+				ApplicationUserDetails(userAuthDetails.getUsername(),userAuthDetails.getPassword());
+		
+		
+		return aud;
+	}
+
+}

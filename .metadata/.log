@@ -6010,3 +6010,457 @@ org.eclipse.debug.core.DebugException: Launch configuration SupermarketService -
 
 !ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:16:03.487
 !MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:29:17.766
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:29:57.668
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:30:31.202
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:31:44.612
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:33:42.114
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:35:12.699
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:36:44.697
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:36:54.018
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:37:21.185
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:37:34.995
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:42:46.102
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:43:19.955
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:43:28.524
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:51:34.010
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:51:41.906
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:53:38.448
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:54:41.387
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 19:59:28.469
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:00:08.392
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:00:29.143
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:00:56.510
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:01:51.402
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:07:28.037
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:10:01.601
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:10:03.797
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:11:14.149
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:12:14.103
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:12:58.445
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:13:48.069
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:13:56.182
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:15:54.809
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:16:43.899
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:18:35.479
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:19:23.267
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:19:51.680
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:20:20.594
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:21:15.610
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-07-17 20:21:58.278
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2023-07-17 20:21:58.284
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Error in Java Model (code 969): userAlreadyExist(UserAlreadyExistException) [in ApplicationExceptionHandler [in [Working copy] ApplicationExceptionHandler.java [in com.microservice.authservice.Exception [in src/main/java [in auth-service]]]]] does not exist
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:574)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:617)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:328)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:314)
+	at org.eclipse.jdt.internal.core.SourceRefElement.getSourceRange(SourceRefElement.java:233)
+	at org.eclipse.jdt.internal.core.Member.getJavadocRange(Member.java:301)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContentFromSource(JavadocContentAccess2.java:645)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:521)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:753)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:671)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:663)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.lambda$0(LSJavaHoverProvider.java:63)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2023-07-17 20:21:58.285
+!MESSAGE userAlreadyExist(UserAlreadyExistException) [in ApplicationExceptionHandler [in [Working copy] ApplicationExceptionHandler.java [in com.microservice.authservice.Exception [in src/main/java [in auth-service]]]]] does not exist
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:21:59.854
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:22:38.053
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:23:51.486
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:24:51.529
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:25:07.788
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:26:37.701
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:26:46.529
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:37:13.757
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:38:31.955
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:38:42.486
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:41:08.443
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:41:14.026
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:43:07.374
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:47:12.182
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:48:27.263
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-07-17 20:50:33.296
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:50:48.110
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:51:33.665
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:52:31.371
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:52:42.798
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-07-17 20:53:05.519
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:53:14.381
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:53:42.394
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:54:19.799
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:54:26.800
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:56:37.025
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:56:49.523
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 20:58:05.953
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:00:05.547
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:00:16.527
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:00:45.309
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:00:58.492
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:03:39.136
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:04:35.290
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:05:31.776
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:07:35.103
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:07:48.606
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-07-17 21:07:53.382
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:08:00.670
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:08:47.369
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:08:53.957
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:08:58.934
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:09:44.538
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:10:07.109
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-07-17 21:10:22.056
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:10:27.742
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:12:55.936
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:13:02.275
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:14:01.900
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.eclipse.jdt.ui 4 10001 2023-07-17 21:14:46.040
+!MESSAGE Internal Error
+!STACK 1
+Java Model Exception: Error in Java Model (code 969): exception(Exception) [in ApplicationExceptionHandler [in [Working copy] ApplicationExceptionHandler.java [in com.microservice.authservice.Exception [in src/main/java [in auth-service]]]]] does not exist
+	at org.eclipse.jdt.internal.core.JavaElement.newNotPresentException(JavaElement.java:574)
+	at org.eclipse.jdt.internal.core.JavaElement.openWhenClosed(JavaElement.java:617)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:328)
+	at org.eclipse.jdt.internal.core.JavaElement.getElementInfo(JavaElement.java:314)
+	at org.eclipse.jdt.internal.core.SourceRefElement.getSourceRange(SourceRefElement.java:233)
+	at org.eclipse.jdt.internal.core.Member.getJavadocRange(Member.java:301)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContentFromSource(JavadocContentAccess2.java:645)
+	at org.eclipse.jdt.internal.ui.text.javadoc.JavadocContentAccess2.getHTMLContent(JavadocContentAccess2.java:521)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo(JavadocHover.java:753)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.internalGetHoverInfo(JavadocHover.java:671)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavadocHover.getHoverInfo2(JavadocHover.java:663)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.lambda$0(LSJavaHoverProvider.java:63)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+!SUBENTRY 1 org.eclipse.jdt.core 4 969 2023-07-17 21:14:46.041
+!MESSAGE exception(Exception) [in ApplicationExceptionHandler [in [Working copy] ApplicationExceptionHandler.java [in com.microservice.authservice.Exception [in src/main/java [in auth-service]]]]] does not exist
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:14:49.832
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:15:17.271
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:17:24.282
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:18:09.686
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:18:58.222
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:19:03.462
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:22:15.706
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:24:24.202
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:24:51.671
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:25:22.593
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.eclipse.lsp4e 2 0 2023-07-17 21:26:46.822
+!MESSAGE Javadoc unavailable. Failed to obtain it.
+!STACK 0
+java.lang.InterruptedException
+	at java.base/java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:386)
+	at java.base/java.util.concurrent.CompletableFuture.get(CompletableFuture.java:2096)
+	at org.eclipse.lsp4e.jdt.LSJavaHoverProvider.getHoverInfo2(LSJavaHoverProvider.java:65)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:163)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:130)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$1.run(TextViewerHoverManager.java:155)
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:26:48.910
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:27:20.116
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:27:39.756
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:27:56.446
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:28:53.608
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:30:30.343
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:30:48.210
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:32:21.646
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:33:47.725
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:34:07.297
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:34:10.685
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:34:27.091
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:35:18.918
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:37:34.291
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:38:43.242
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:41:45.822
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:41:55.574
+!MESSAGE Classpath changed for project: auth-service
+
+!ENTRY org.springframework.tooling.boot.ls 1 0 2023-07-17 21:42:24.718
+!MESSAGE Classpath changed for project: auth-service

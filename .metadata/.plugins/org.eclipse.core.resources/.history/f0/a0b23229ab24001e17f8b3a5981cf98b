@@ -1,0 +1,36 @@
+package com.microservice.authservice.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.microservice.authservice.DTO.UserDetailsDTO;
+import com.microservice.authservice.Entity.UserAuthDetails;
+import com.microservice.authservice.repository.AuthRepository;
+
+public class AuthService {
+	
+	@Autowired
+	private AuthenticationManager authenticationManager;
+	
+	@Autowired
+	private AuthRepository authRepository;
+	
+	public String addUser(UserDetailsDTO userDetailsDTO) {
+		UserAuthDetails user = new UserAuthDetails();
+		return String.format("User: %s added successfully", userDetailsDTO.getUsername());
+	}
+	
+	public String generateToken() {
+		return "token";
+	}
+	
+	public boolean validateDetails(String user) {
+		return true;
+	}
+	
+	public boolean validateToken() {
+		return true;
+	}
+
+}

@@ -1,0 +1,24 @@
+package com.microservice.authservice.Exception;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
+import com.microservice.authservice.DTO.ExceptionDTO;
+
+public class UserNotFoundException extends UsernameNotFoundException implements ExceptionResponseEntity {
+
+	ExceptionDTO dto;
+	
+	public UserNotFoundException(ExceptionDTO dto) {
+		super();
+		this.dto=dto;
+	}
+	
+	@Override
+	public ResponseEntity<ExceptionDTO> getResponseEntity() {
+		return ResponseEntity
+				.status(dto.getStatusCode())
+				.body(dto);
+	}
+
+}
