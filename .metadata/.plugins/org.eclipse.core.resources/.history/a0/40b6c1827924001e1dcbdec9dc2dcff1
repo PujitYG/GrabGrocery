@@ -1,0 +1,10 @@
+server:
+port: 9898
+  
+
+
+
+eureka:
+client:
+serviceUrl:
+defaultZone: http://localhost:5000/eureka

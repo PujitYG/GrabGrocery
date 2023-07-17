@@ -1,0 +1,13 @@
+server.port=8080
+
+
+logging.level.root=INFO
+
+spring.application.name=discovery-service
+
+
+eureka.client.fetch-registry=true
+eureka.client.register-with-eureka=true
+
+
+eureka.client.service-url.defaultZone=http://localhost:5000/eureka

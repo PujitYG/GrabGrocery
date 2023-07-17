@@ -1,0 +1,31 @@
+package com.microservice.EmployeeService.Controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.function.client.WebClient;
+
+
+@RestController
+@RequestMapping("api/employee")
+public class EmployeeRootController {
+	
+	@Autowired
+	private WebClient.Builder webClientBuilder;
+
+	@GetMapping("/")
+	public String root() {
+		ResponseEntity<String> res =webClientBuilder
+		.build()
+		.get()
+		.uri("http:superMarket-Service/api/supermarket/details")
+		.retrieve()
+		.bodyToMono(ResponseEntity.class)
+		.block();
+		return "Root_Employee";
+	}
+	
+}

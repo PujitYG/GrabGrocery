@@ -1,0 +1,19 @@
+package com.microservice.authservice.Entity;
+
+import javax.persistence.Entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserAuthDetails {
+	
+	private String username;
+	private String password;
+	private String email;
+
+}

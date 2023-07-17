@@ -1,0 +1,5 @@
+package com.microservice.authservice.Config;
+
+public class ApplicationUserDetailsService {
+
+}
