@@ -1,0 +1,35 @@
+server:
+ port: 9898
+ 
+
+ 
+ 
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+       dialect: org.hibernate.dialect.Oracle10gDialect
+       ddl-auto: update  
+  datasource:
+   driverClassName: oracle.jdbc.driver.OracleDriver
+   url: jdbc:oracle:thin:@172.28.224.1:1521:xe
+   username: hiber
+   password: pass
+  application:
+    name: Auth-service
+    
+    
+jwts:
+ secret: "asdfSFS34wfsdfsdfSDSD32dfsddDDerQSNCK34SOWEK5354fdgdf4"
+
+  
+
+
+eureka:
+ client:
+  register-with-eureka: true
+  fetch-registry: true
+  service-url:
+   defaultZone: http://localhost:5000/eureka
+ 

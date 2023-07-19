@@ -1,0 +1,5 @@
+package com.microservice.authservice.DTO;
+
+public class Token {
+
+}

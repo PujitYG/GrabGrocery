@@ -1,0 +1,30 @@
+package com.microservice.authservice.util;
+
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.util.Date;
+
+import io.jsonwebtoken.Jwts;
+
+public class JWTUtil {
+	
+	
+	public static String getJwtToken(String name,String email) {
+		LocalDateTime now = LocalDateTime.now();
+		
+		return Jwts.builder()
+				.setSubject("USER-AUTHENTICATION")
+				.claim("name", name)
+				.claim("email", email)
+				.setIssuedAt(Date.from(now.toInstant(ZoneOffset.UTC)))
+				.setExpiration(Date.from(now.plusMinutes(20l).toInstant(ZoneOffset.UTC)))
+				.compact();
+		
+				
+	}
+	
+	public static boolean validateToken(String token) {
+		return true;
+	}
+
+}

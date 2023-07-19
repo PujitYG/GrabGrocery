@@ -3,6 +3,7 @@ package com.microservice.authservice.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,10 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.authservice.DTO.ExceptionDTO;
+import com.microservice.authservice.DTO.Token;
 import com.microservice.authservice.DTO.UserDetailsDTO;
 import com.microservice.authservice.Exception.UserAlreadyExistException;
 import com.microservice.authservice.services.AuthService;
+import com.microservice.authservice.util.JWTUtil;
 import com.netflix.discovery.converters.Auto;
+
+import io.jsonwebtoken.Claims;
+import io.jsonwebtoken.Jws;
 
 @RestController
 @RequestMapping("/")
@@ -22,6 +28,12 @@ public class AuthController {
 	
 	@Autowired
 	AuthService authService;
+	
+	@Value("${jwts.secret}")
+	String value;
+	
+	@Autowired
+	JWTUtil jwtutil;
 	
 	@GetMapping("")
 	public String test() {
@@ -54,6 +66,19 @@ public class AuthController {
 		return ResponseEntity
 				.status(200)
 				.body(message);
+	}
+	
+	@GetMapping("token")
+	public String getSecretValidate() {
+		
+		return jwtutil.getJwtToken("Pujit", "tf@gmail.com");
+	}
+	
+	
+	@PostMapping("validate/token")
+	public Jws<Claims> validateToken(@RequestBody Token token) throws Exception {
+		Jws<Claims> claims = jwtutil.validateToken(token.getJwtToken());
+		return claims;
 	}
 
 }

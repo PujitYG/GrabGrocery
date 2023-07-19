@@ -22,42 +22,10 @@ import com.microservice.authservice.Config.ApplicationUserDetailsService;
 @EnableDiscoveryClient
 public class AuthServiceApplication {
 	
-	@Autowired
-	ApplicationUserDetailsService userDetailsService;
+
 
 	public static void main(String[] args) {
 		SpringApplication.run(AuthServiceApplication.class, args);
 	}
 	
-	@Bean
-	public PasswordEncoder encoder() {
-	    return new BCryptPasswordEncoder();
-	}
-	
-	@Bean
-	public DaoAuthenticationProvider authProvider() {
-	    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-	    authProvider.setUserDetailsService(userDetailsService);
-	    authProvider.setPasswordEncoder(encoder());
-	    return authProvider;
-	}
-	
-	@Bean
-	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-		return http.csrf().disable()
-		.authorizeRequests()
-		.anyRequest()
-		.permitAll()
-		.and()
-		.build();
-		
-	}
-	
-    @Bean
-    public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {
-        return config.getAuthenticationManager();
-    }
-	
-	
-
 }
