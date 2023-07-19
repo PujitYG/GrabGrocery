@@ -37,7 +37,7 @@ public class AuthController {
 	
 	@GetMapping("")
 	public String test() {
-		return "Hello testing";
+		return "Hello";
 	}
 	
 	@PostMapping("add/user")
