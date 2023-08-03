@@ -1,5 +1,0 @@
-package com.microservice.authservice.Config;
-
-public class SecurityConfig {
-
-}

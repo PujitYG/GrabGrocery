@@ -1,5 +1,0 @@
-package com.microservice.authservice.controller;
-
-public class AuthController {
-
-}

@@ -1,5 +1,0 @@
-package com.microservice.EmployeeService.Client;
-
-public class SuperMarketServiceClient2 {
-
-}

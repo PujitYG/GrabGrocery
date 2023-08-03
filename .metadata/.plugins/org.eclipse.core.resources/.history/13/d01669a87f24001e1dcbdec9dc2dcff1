@@ -1,9 +1,0 @@
-package com.microservice.authservice.repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.microservice.authservice.Entity.UserAuthDetails;
-
-public interface UserDetailsRepository extends JpaRepository<UserAuthDetails, String.class> {
-
-}

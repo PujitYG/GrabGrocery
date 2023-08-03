@@ -1,8 +1,0 @@
-package com.microservice.EmployeeService.Controller;
-
-import org.springframework.stereotype.Controller;
-
-@RestController
-public class EmployeeRootController {
-
-}

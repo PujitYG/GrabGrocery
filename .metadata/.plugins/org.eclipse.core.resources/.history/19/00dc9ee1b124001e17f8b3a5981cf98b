@@ -1,9 +1,0 @@
-package com.microservice.authservice.Exception;
-
-import org.springframework.http.ResponseEntity;
-
-public interface ExceptionResponseEntity {
-	
-	public ResponseEntity<String> getResponseEntity();
-
-}

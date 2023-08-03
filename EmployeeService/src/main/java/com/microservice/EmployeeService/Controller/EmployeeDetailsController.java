@@ -6,18 +6,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.EmployeeService.Client.SuperMarketServiceClient;
+import com.microservice.EmployeeService.Service.EmployeeDetailsService;
+
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
 @RestController
 @RequestMapping("api/employee/details")
 public class EmployeeDetailsController {
 	
 	@Autowired
-	SuperMarketServiceClient psc;
+    private EmployeeDetailsService eds;
 	
-	
+
 	@GetMapping("test")
 	public String test() {
-		return "EmployeeDetails "+psc.isUp();
+		eds.check();
+		return "EmployeeDetails ";
 	}
+	
+
 	
 }

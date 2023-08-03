@@ -6,6 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import io.github.resilience4j.ratelimiter.annotation.RateLimiter;
+
 import static org.springframework.web.reactive.function.client.WebClient.*;
 
 import javax.servlet.http.Cookie;
@@ -33,8 +36,18 @@ public class EmployeeRootController {
 	}
 	
 	@GetMapping("check")
+	@RateLimiter(name = "rate-limiter1",fallbackMethod = "fallBack")
 	public String check(HttpServletRequest request, HttpServletResponse response) {
+//		try {
+//			Thread.sleep(2000);
+//		} catch (InterruptedException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		return "hello";
 	}
 	
+	public String fallBack(Exception e) {
+		return "Fall back for rate limiter executed";
+	}
 }

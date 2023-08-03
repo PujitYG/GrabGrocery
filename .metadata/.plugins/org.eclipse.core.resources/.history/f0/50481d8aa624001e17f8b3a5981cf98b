@@ -1,5 +1,0 @@
-package com.microservice.authservice.services;
-
-public class AuthService {
-
-}
