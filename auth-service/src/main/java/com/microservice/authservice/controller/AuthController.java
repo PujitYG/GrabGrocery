@@ -23,7 +23,7 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/auth")
 public class AuthController {
 	
 	@Autowired
@@ -76,9 +76,9 @@ public class AuthController {
 	
 	
 	@PostMapping("validate/token")
-	public Jws<Claims> validateToken(@RequestBody Token token) throws Exception {
-		Jws<Claims> claims = jwtutil.validateToken(token.getJwtToken());
-		return claims;
+	public Boolean validateToken(@RequestBody Token token) throws Exception {
+		System.out.println(token.getJwtToken());
+		return authService.validateToken(token.getJwtToken());
 	}
 
 }

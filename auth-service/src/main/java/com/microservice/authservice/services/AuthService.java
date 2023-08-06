@@ -13,6 +13,8 @@ import org.springframework.stereotype.Service;
 import com.microservice.authservice.DTO.UserDetailsDTO;
 import com.microservice.authservice.Entity.UserAuthDetails;
 import com.microservice.authservice.repository.AuthRepository;
+import com.microservice.authservice.util.JWTUtil;
+import com.netflix.discovery.converters.Auto;
 
 @Service
 public class AuthService {
@@ -25,6 +27,9 @@ public class AuthService {
 	
 	@Autowired
 	private PasswordEncoder encoder;
+	
+	@Autowired
+	private JWTUtil jwtUtil;
 	
 	public boolean userExists(UserDetailsDTO userDetailsDTO) {
 		String username = userDetailsDTO.getUsername();
@@ -54,8 +59,8 @@ public class AuthService {
 		return auth.isAuthenticated();
 	}
 	
-	public boolean validateToken() {
-		return true;
+	public boolean validateToken(String token) {
+		return jwtUtil.validateToken(token);
 	}
 
 }

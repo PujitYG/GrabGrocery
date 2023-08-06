@@ -1,6 +1,9 @@
 package com.microservice.SupermarketService.Controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,8 +17,10 @@ public class SuperMarketDetailsController {
 	KafkaTemplate<String, String> template;
 		
 	@GetMapping("test")
-	public String test() {
-		template.send("topic-example-10", "one1", "test6");
+	public String test(HttpServletRequest request) {
+//		template.send("topic-example-10", "one1", "test6");
+		System.out.println(request.getHeader("Header-Example"));
+		
 		return "SuperMarketDetails-1";
 	}
 	

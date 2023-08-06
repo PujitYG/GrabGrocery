@@ -38,12 +38,7 @@ public class EmployeeRootController {
 	@GetMapping("check")
 	@RateLimiter(name = "rate-limiter1",fallbackMethod = "fallBack")
 	public String check(HttpServletRequest request, HttpServletResponse response) {
-//		try {
-//			Thread.sleep(2000);
-//		} catch (InterruptedException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		System.out.print(request.getHeader("Header-Example"));
 		return "hello";
 	}
 	

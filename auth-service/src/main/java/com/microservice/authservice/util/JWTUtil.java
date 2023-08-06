@@ -45,12 +45,17 @@ public class JWTUtil {
 				
 	}
 	
-	public Jws<Claims> validateToken(String token) throws SignatureException{
-		Jws<Claims> claims = Jwts.parserBuilder()
+	public boolean validateToken(String token) throws SignatureException{
+		try{
+			Jwts.parserBuilder()
 						.setSigningKey(secretKey)
-						.build()
-						.parseClaimsJws(token);
-		return claims;
+						.build().parse(token);
+		}catch (Exception e) {
+			return false;
+		}
+		
+		return true;
+
 	}
 
 }
