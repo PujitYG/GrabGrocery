@@ -58,4 +58,10 @@ public class ApplicationUserDetails implements UserDetails {
 		return true;
 	}
 
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	
+
 }

@@ -1,6 +1,9 @@
 package com.microservice.authservice.Entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -14,25 +17,33 @@ public class UserAuthDetails {
 	
 	@Id
 	private String username;
-	
-	
-	
-	public UserAuthDetails() {
-		super();
-	}
-
-	public UserAuthDetails(String username, String password, String email) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.email = email;
-	}
 
 	@Column(name="PASSWORD")
 	private String password;
 	
 	@Column(name="EMAIL")
 	private String email;
+	
+	@ElementCollection
+	private List<String> Roles;
+	
+	public UserAuthDetails() {
+		super();
+	}
+	
+	
+
+
+	public UserAuthDetails(String username, String password, String email, List<String> roles) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.email = email;
+		Roles = roles;
+	}
+
+
+
 
 	public String getUsername() {
 		return username;
@@ -57,6 +68,23 @@ public class UserAuthDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
+	
+	
+
+	public List<String> getRoles() {
+		return Roles;
+	}
+
+
+
+
+	public void setRoles(List<String> roles) {
+		Roles = roles;
+	}
+
+
+
 
 	@Override
 	public String toString() {

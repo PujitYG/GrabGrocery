@@ -1,16 +1,20 @@
 package com.microservice.authservice.controller;
 
+import java.security.Principal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.AuthenticatedPrincipal;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.microservice.authservice.Config.ApplicationUserDetails;
 import com.microservice.authservice.DTO.ExceptionDTO;
 import com.microservice.authservice.DTO.Token;
 import com.microservice.authservice.DTO.UserDetailsDTO;
@@ -76,8 +80,8 @@ public class AuthController {
 	
 	
 	@PostMapping("validate/token")
-	public Boolean validateToken(@RequestBody Token token) throws Exception {
-		System.out.println(token.getJwtToken());
+	public Boolean validateToken(@RequestBody Token token, Authentication p) throws Exception {
+		System.out.println(((ApplicationUserDetails) p.getPrincipal()).getPassword());
 		return authService.validateToken(token.getJwtToken());
 	}
 

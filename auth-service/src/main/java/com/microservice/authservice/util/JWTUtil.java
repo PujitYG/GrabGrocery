@@ -25,7 +25,7 @@ public class JWTUtil {
 	
 	@Autowired
 	public JWTUtil(@Value("${jwts.secret}") String secret) {
-		this.secretKey = new SecretKeySpec(Base64.getDecoder().decode(secret),SignatureAlgorithm.HS256.getJcaName());
+		this.secretKey = new SecretKeySpec(secret.getBytes(),SignatureAlgorithm.HS256.getJcaName());
 	}
 	
 	
@@ -56,6 +56,12 @@ public class JWTUtil {
 		
 		return true;
 
+	}
+	
+	public Jws<Claims> getClaimsFromToken(String token) {
+		return Jwts.parserBuilder()
+				.setSigningKey(secretKey)
+				.build().parseClaimsJws(token);
 	}
 
 }

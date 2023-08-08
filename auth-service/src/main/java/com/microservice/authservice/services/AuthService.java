@@ -34,7 +34,7 @@ public class AuthService {
 	public boolean userExists(UserDetailsDTO userDetailsDTO) {
 		String username = userDetailsDTO.getUsername();
 		
-		Optional<UserAuthDetails> user = authRepository.findByUsername(username);
+		Optional<UserAuthDetails> user = authRepository.findByUsernameIgnoreCase(username);
 		
 		return user.isPresent();
 	}
@@ -60,7 +60,7 @@ public class AuthService {
 	}
 	
 	public boolean validateToken(String token) {
-		return jwtUtil.validateToken(token);
+		return jwtUtil.validateToken(token); 
 	}
 
 }

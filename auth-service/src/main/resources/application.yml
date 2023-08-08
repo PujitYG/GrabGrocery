@@ -18,6 +18,12 @@ spring:
    password: pass
   application:
     name: Auth-service
+ 
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
     
     
 jwts:
