@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ public class UserController {
 	AuthService authService;
 	
 	@PostMapping("add")
+	@PreAuthorize("hasRole('ADMIN')")
 	public ResponseEntity<String> addUser(@Valid @RequestBody UserDetailsDTO userDetails) throws UserAlreadyExistException{
 		
 		ExceptionDTO dto = new ExceptionDTO();

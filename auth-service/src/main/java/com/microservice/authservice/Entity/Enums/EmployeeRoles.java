@@ -4,5 +4,6 @@ public enum EmployeeRoles {
 	MANAGER,
 	CASHIER,
 	SECUIRTY,
-	RECEPTIONIST
+	RECEPTIONIST,
+	ADMIN
 }
