@@ -3,6 +3,7 @@ package com.microservice.authservice;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -20,6 +21,7 @@ import com.microservice.authservice.Config.ApplicationUserDetailsService;
 
 @SpringBootApplication
 @EnableDiscoveryClient
+@EntityScan("com.microservice.authservice.Entity")
 public class AuthServiceApplication {
 	
 

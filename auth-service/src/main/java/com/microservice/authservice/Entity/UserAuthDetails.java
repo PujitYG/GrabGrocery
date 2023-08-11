@@ -5,7 +5,11 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.Id;
+
+import com.microservice.authservice.Entity.Enums.EmployeeRoles;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,21 +29,20 @@ public class UserAuthDetails {
 	private String email;
 	
 	@ElementCollection
-	private List<String> Roles;
+	@Enumerated(EnumType.STRING)
+	private List<EmployeeRoles> roles;
 	
 	public UserAuthDetails() {
 		super();
 	}
 	
-	
 
-
-	public UserAuthDetails(String username, String password, String email, List<String> roles) {
+	public UserAuthDetails(String username, String password, String email, List<EmployeeRoles> roles) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
-		Roles = roles;
+		this.roles = roles;
 	}
 
 
@@ -72,26 +75,17 @@ public class UserAuthDetails {
 	
 	
 
-	public List<String> getRoles() {
-		return Roles;
+	public List<EmployeeRoles> getRoles() {
+		return this.roles;
 	}
 
 
 
 
-	public void setRoles(List<String> roles) {
-		Roles = roles;
+	public void setRoles(List<EmployeeRoles> roles) {
+		this.roles = roles;
 	}
 
-
-
-
-	@Override
-	public String toString() {
-		return "UserAuthDetails [username=" + username + ", password=" + password + ", email=" + email + "]";
-	}
-	
-	
 	
 
 }

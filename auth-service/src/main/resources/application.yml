@@ -7,12 +7,13 @@ server:
 spring:
   jpa:
     show-sql: true
+    generate-ddl: true
     properties:
       hibernate:
        dialect: org.hibernate.dialect.Oracle10gDialect
        ddl-auto: update  
   datasource:
-   driverClassName: oracle.jdbc.driver.OracleDriver
+   driverClassName: oracle.jdbc.OracleDriver
    url: jdbc:oracle:thin:@172.28.224.1:1521:xe
    username: hiber
    password: pass

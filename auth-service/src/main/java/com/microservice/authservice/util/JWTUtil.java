@@ -11,6 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.microservice.authservice.DTO.Token;
+import com.microservice.authservice.Entity.UserAuthDetails;
+import com.microservice.authservice.projections.UserDetailsToken;
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;
@@ -29,18 +33,25 @@ public class JWTUtil {
 	}
 	
 	
-	public String getJwtToken(String name,String email) {
+	public Token getJwtToken(UserDetailsToken user) {
 		LocalDateTime now = LocalDateTime.now();
 		
-		return Jwts.builder()
+		String jwtToken = Jwts.builder()
 				.setSubject("USER-AUTHENTICATION")
 				.setIssuer("Auth-service")
-				.claim("name", name)
-				.claim("email", email)
+				.claim("name", user.getUsername())
+				.claim("email", user.getEmail())
+				.claim("roles", user.getRoles())
 				.setIssuedAt(Date.from(now.toInstant(ZoneOffset.UTC)))
 				.setExpiration(Date.from(now.plusMinutes(20l).toInstant(ZoneOffset.UTC)))
 				.signWith(secretKey)
 				.compact();
+		
+		return Token.buider()
+				.username(user.getUsername())
+				.email(user.getEmail())
+				.jwt(jwtToken)
+				.build();
 		
 				
 	}

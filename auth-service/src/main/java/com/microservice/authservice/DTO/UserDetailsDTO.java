@@ -1,13 +1,27 @@
 package com.microservice.authservice.DTO;
 
+import java.util.List;
+
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Length;
+import org.springframework.validation.annotation.Validated;
+
+import com.microservice.authservice.Entity.Enums.EmployeeRoles;
+import com.microservice.authservice.controller.constraints.EmployeeRolesValidation;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+//@Validated
 public class UserDetailsDTO {
+	
 	private String username;
 	private String password;
 	private String email;
+	
+	@EmployeeRolesValidation
+	private List<String> roles;
 	
 	
 	
@@ -31,6 +45,14 @@ public class UserDetailsDTO {
 	}
 	public void setEmail(String email) {
 		this.email = email;
+	}
+	
+	
+	public List<String> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<String> roles) {
+		this.roles = roles;
 	}
 	@Override
 	public String toString() {
