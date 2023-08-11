@@ -33,6 +33,7 @@ public class ApplicationUserDetails implements UserDetails {
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return this.authorities;
 	}
+	
 
 	@Override
 	public String getPassword() {

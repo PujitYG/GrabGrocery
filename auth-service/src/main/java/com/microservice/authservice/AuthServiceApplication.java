@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -24,6 +25,10 @@ import com.microservice.authservice.Config.ApplicationUserDetailsService;
 @EntityScan("com.microservice.authservice.Entity")
 public class AuthServiceApplication {
 	
+//	@Bean
+//	public PasswordEncoder encoder() {
+//	    return new BCryptPasswordEncoder();
+//	}
 
 
 	public static void main(String[] args) {

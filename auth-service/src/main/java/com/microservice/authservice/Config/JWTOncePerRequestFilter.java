@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -28,13 +29,15 @@ import com.netflix.discovery.converters.Auto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 
-
+@Component
 public class JWTOncePerRequestFilter extends OncePerRequestFilter {
 	
 	private static String AUTHORIZATION="AUTHORIZATION";
 
+	@Autowired
 	private JWTUtil jwtUtil;
-	
+
+	@Autowired
 	private UserDetailsService userDetailsService;
 	
 	public JWTOncePerRequestFilter(JWTUtil jwtUtil,UserDetailsService userDetailsService) {
@@ -58,17 +61,22 @@ public class JWTOncePerRequestFilter extends OncePerRequestFilter {
 		
 		Jws<Claims> claims=jwtUtil.getClaimsFromToken(authorization);
 		String user = claims.getBody().get("name").toString();
-		
-
-		UserDetails userDetails=userDetailsService.loadUserByUsername(user);
-		
+				
 		
 		UsernamePasswordAuthenticationToken authentication=
-				new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
+				getAuthenticationToken(user);
 		
 		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		filterChain.doFilter(request, response);
+		
+	}
+	
+	private UsernamePasswordAuthenticationToken getAuthenticationToken(String user) {
+		
+		UserDetails userDetails=userDetailsService.loadUserByUsername(user);
+		
+		return new UsernamePasswordAuthenticationToken(userDetails.getUsername(), null, userDetails.getAuthorities());
 		
 	}
 

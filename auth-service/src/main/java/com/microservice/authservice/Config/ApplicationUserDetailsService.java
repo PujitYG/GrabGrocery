@@ -32,11 +32,12 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 		if(!user.isPresent()) throw new UsernameNotFoundException("user Not found");
 
 		UserAuthDetails userAuthDetails = user.get();
-		
+	
 		Collection<? extends GrantedAuthority> roles= userAuthDetails.getRoles().stream()
 														.map(role->"ROLE_"+role.toString())
 														.map(SimpleGrantedAuthority::new)
 														.collect(Collectors.toList());
+		
 		
 		ApplicationUserDetails aud = new 
 				ApplicationUserDetails(userAuthDetails.getUsername(),userAuthDetails.getPassword(),

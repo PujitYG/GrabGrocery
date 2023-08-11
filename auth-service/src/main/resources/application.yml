@@ -19,6 +19,8 @@ spring:
    password: pass
   application:
     name: Auth-service
+  aop:
+    proxy-target-class: true
  
 logging:
   level:
@@ -30,7 +32,6 @@ logging:
 jwts:
  secret: "asyudfusdf2323aSNDJAN982837278AJDHBADSBSJDSVSCVSDFVERS3432"
 
-  
 
 
 eureka:

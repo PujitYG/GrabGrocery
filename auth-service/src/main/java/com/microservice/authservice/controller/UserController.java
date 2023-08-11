@@ -16,13 +16,15 @@ import com.microservice.authservice.DTO.ExceptionDTO;
 import com.microservice.authservice.DTO.UserDetailsDTO;
 import com.microservice.authservice.Exception.UserAlreadyExistException;
 import com.microservice.authservice.services.AuthService;
+import com.microservice.authservice.services.AuthServiceImp;
+import com.microservice.authservice.services.UserService;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 	
 	@Autowired
-	AuthService authService;
+	UserService userService;
 	
 	@PostMapping("add")
 	@PreAuthorize("hasRole('ADMIN')")
@@ -34,9 +36,9 @@ public class UserController {
 		dto.setTimeStamp(LocalDateTime.now());
 		dto.setStatusCode(401);
 		
-		if(authService.userExists(userDetails)) throw new UserAlreadyExistException(dto);
+		if(userService.userExists(userDetails)) throw new UserAlreadyExistException(dto);
 		
-		String message = authService.addUser(userDetails);
+		String message = userService.addUser(userDetails);
 		
 		return ResponseEntity
 				.status(200)

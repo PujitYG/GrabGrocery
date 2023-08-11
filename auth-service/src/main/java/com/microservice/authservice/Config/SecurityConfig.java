@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -16,7 +17,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.microservice.authservice.services.AuthServiceImp;
 import com.microservice.authservice.util.JWTUtil;
 
 @Configuration
@@ -24,14 +27,13 @@ import com.microservice.authservice.util.JWTUtil;
 public class SecurityConfig {
 	
 	@Autowired
-	ApplicationUserDetailsService userDetailsService;
+	UserDetailsService userDetailsService;
+	
 	
 	@Autowired
 	JWTUtil jwtUtil;
 	
-	
-	
-	
+
 	@Bean
 	public PasswordEncoder encoder() {
 	    return new BCryptPasswordEncoder();
@@ -59,9 +61,6 @@ public class SecurityConfig {
 		.and()
 		.addFilterBefore(new JWTOncePerRequestFilter(jwtUtil,userDetailsService), UsernamePasswordAuthenticationFilter.class)
 		.build();
-		
-		
-		
 	}
 	
 	@Bean
