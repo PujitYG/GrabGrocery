@@ -40,9 +40,6 @@ import io.jsonwebtoken.Jws;
 public class AuthController {
 	
 	@Autowired
-	AuthRepository repo;
-	
-	@Autowired
 	AuthService authService;
 	
 	@Value("${jwts.secret}")
@@ -56,41 +53,11 @@ public class AuthController {
 		return "Hello";
 	}
 	
-	@PostMapping("add/user")
-	public ResponseEntity<String> addUser(@Valid @RequestBody UserDetailsDTO userDetails) throws UserAlreadyExistException{
-		
-		ExceptionDTO dto = new ExceptionDTO();
-		dto.setError("Forbidden");
-		dto.setMessage("user already exists");
-		dto.setTimeStamp(LocalDateTime.now());
-		dto.setStatusCode(401);
-		
-		if(authService.userExists(userDetails)) throw new UserAlreadyExistException(dto);
-		
-		System.out.println(userDetails.getRoles());
-		
-		String message = authService.addUser(userDetails);
-		
-		return ResponseEntity
-				.status(200)
-				.body(message);
-	}
-	
-	@PostMapping("validate")
-	public ResponseEntity<Boolean> validateUser(@RequestBody UserDetailsDTO dto) throws Exception{
-		
-		boolean message = authService.validateUser(dto);
-		
-		return ResponseEntity
-				.status(200)
-				.body(message);
-	}
-	
-	@PostMapping("authenticate")
+	@PostMapping("token")
 	public ResponseEntity<Token> authenticateUser(@RequestBody UserDetailsDTO dto) throws Exception {
 		
-		
 		if(!authService.validateUser(dto)) throw new BadCredentialsException("Please enter valid Details");
+		
 		
 		Token token = authService.generateToken(dto);
 

@@ -2,24 +2,36 @@ package com.microservice.authservice.Config;
 
 
 import java.util.Collection;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.microservice.authservice.Entity.Enums.EmployeeRoles;
 
 public class ApplicationUserDetails implements UserDetails {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
+	private Collection<? extends GrantedAuthority> authorities;
 	
-	public ApplicationUserDetails(String username,String password) {
+	public ApplicationUserDetails(String username,String password, Collection<? extends GrantedAuthority> roles) {
 		this.username=username;
 		this.password=password;
+		this.authorities=roles;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.authorities;
 	}
 
 	@Override

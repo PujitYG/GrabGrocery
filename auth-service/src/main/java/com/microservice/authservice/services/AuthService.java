@@ -13,6 +13,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.microservice.authservice.DTO.Token;
 import com.microservice.authservice.DTO.UserDetailsDTO;
@@ -38,6 +39,7 @@ public class AuthService {
 	@Autowired
 	private JWTUtil jwtUtil;
 	
+	@Transactional
 	public boolean userExists(UserDetailsDTO userDetailsDTO) {
 		String username = userDetailsDTO.getUsername();
 		
@@ -46,6 +48,7 @@ public class AuthService {
 		return user.isPresent();
 	}
 	
+	@Transactional
 	public String addUser(UserDetailsDTO userDetailsDTO) {
 		UserAuthDetails user = new UserAuthDetails();
 		user.setUsername(userDetailsDTO.getUsername());
@@ -62,18 +65,21 @@ public class AuthService {
 		return String.format("User: %s added successfully", userDetailsDTO.getUsername());
 	}
 	
+	@Transactional
 	public Token generateToken(UserDetailsDTO userDetailsDTO) throws Exception {
 		Optional<UserDetailsToken> userOptional = authRepository.getUserAddressToken(userDetailsDTO.getUsername());
 		
 		UserDetailsToken user = userOptional
 				.orElseThrow(()->new UsernameNotFoundException("User not found"));
-		
+
+//		user.get
 		Token token = jwtUtil.getJwtToken(user);
 		
 		
 		return token;
 	}
 	
+	@Transactional
 	public boolean validateUser(UserDetailsDTO userDetailsDTO) throws Exception {
 		Boolean userAuthenticated=false;
 		Authentication auth = new UsernamePasswordAuthenticationToken(userDetailsDTO.getUsername(),userDetailsDTO.getPassword());

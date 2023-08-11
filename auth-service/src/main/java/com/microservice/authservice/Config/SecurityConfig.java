@@ -1,17 +1,22 @@
 package com.microservice.authservice.Config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+
+import com.microservice.authservice.util.JWTUtil;
 
 @Configuration
 public class SecurityConfig {
@@ -20,7 +25,9 @@ public class SecurityConfig {
 	ApplicationUserDetailsService userDetailsService;
 	
 	@Autowired
-	JWTOncePerRequestFilter filter;
+	JWTUtil jwtUtil;
+	
+	
 	
 	
 	@Bean
@@ -38,35 +45,37 @@ public class SecurityConfig {
 	}
 	
 	@Bean
+	@Order(2)
 	public SecurityFilterChain filterChain1(HttpSecurity http) throws Exception {
 		return http.csrf().disable()
-//		.antMatcher("/public/**")
+		.antMatcher("/user/**")
 		.authorizeRequests()
 		.anyRequest()
-		.permitAll()
-//		.authenticated()
+		.authenticated()
 		.and()
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 		.and()
-//		.anonymous().disable()
-		.addFilterBefore(filter, UsernamePasswordAuthenticationFilter.class)
+		.addFilterBefore(new JWTOncePerRequestFilter(jwtUtil,userDetailsService), UsernamePasswordAuthenticationFilter.class)
 		.build();
 		
 		
 		
 	}
 	
-//	@Bean
-//	public SecurityFilterChain filterChain2(HttpSecurity http) throws Exception {
-//		return http.csrf().disable()
-//		.antMatcher("/private/**")
-//		.authorizeRequests()
-//		.anyRequest()
-//		.authenticated()
-//		.and()
-//		.build();
-//		
-//	}
+	@Bean
+	@Order(1)
+	public SecurityFilterChain filterChain2(HttpSecurity http) throws Exception {
+		return http.csrf().disable()
+		.antMatcher("/auth/**")
+		.authorizeRequests()
+		.anyRequest()
+		.permitAll()
+		.and()
+		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+		.and()
+		.build();
+		
+	}
 	
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration config) throws Exception {

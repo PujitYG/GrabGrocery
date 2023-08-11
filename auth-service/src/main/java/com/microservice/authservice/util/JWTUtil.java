@@ -10,6 +10,7 @@ import javax.crypto.spec.SecretKeySpec;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.microservice.authservice.DTO.Token;
 import com.microservice.authservice.Entity.UserAuthDetails;
@@ -33,6 +34,7 @@ public class JWTUtil {
 	}
 	
 	
+	@Transactional
 	public Token getJwtToken(UserDetailsToken user) {
 		LocalDateTime now = LocalDateTime.now();
 		
@@ -41,7 +43,7 @@ public class JWTUtil {
 				.setIssuer("Auth-service")
 				.claim("name", user.getUsername())
 				.claim("email", user.getEmail())
-				.claim("roles", user.getRoles())
+//				.claim("roles", user.getRoles())
 				.setIssuedAt(Date.from(now.toInstant(ZoneOffset.UTC)))
 				.setExpiration(Date.from(now.plusMinutes(20l).toInstant(ZoneOffset.UTC)))
 				.signWith(secretKey)
