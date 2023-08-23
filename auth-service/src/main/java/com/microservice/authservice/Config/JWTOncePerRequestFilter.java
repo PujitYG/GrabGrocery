@@ -1,6 +1,7 @@
 package com.microservice.authservice.Config;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.FilterChain;
@@ -8,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.entity.ContentType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -23,21 +25,21 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.filter.OncePerRequestFilter;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.microservice.authservice.DTO.ExceptionDTO;
 import com.microservice.authservice.util.JWTUtil;
 import com.netflix.discovery.converters.Auto;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 
-@Component
+
 public class JWTOncePerRequestFilter extends OncePerRequestFilter {
 	
 	private static String AUTHORIZATION="AUTHORIZATION";
 
-	@Autowired
 	private JWTUtil jwtUtil;
 
-	@Autowired
 	private UserDetailsService userDetailsService;
 	
 	public JWTOncePerRequestFilter(JWTUtil jwtUtil,UserDetailsService userDetailsService) {
@@ -55,7 +57,19 @@ public class JWTOncePerRequestFilter extends OncePerRequestFilter {
 		
 		
 		if(authorization==null || !jwtUtil.validateToken(authorization)) {
-			filterChain.doFilter(request, response);
+//			filterChain.doFilter(request, response);
+//			throw new RuntimeException("Yes jwt not valid");
+			ExceptionDTO dto = new ExceptionDTO();
+			dto.setError("BAD REQUEST");
+			dto.setStatusCode(403);
+			dto.setMessage("Invalid Authentication");
+			dto.setPath(request.getRequestURL().toString());
+//			dto.setTimeStamp(LocalDateTime.now());
+			String json = new ObjectMapper().writeValueAsString(dto);
+			response.getWriter().write(json);
+			response.setContentType(ContentType.APPLICATION_JSON.toString());
+			response.setStatus(403);
+//			filterChain.doFilter(request, response);
 			return;
 		}
 		

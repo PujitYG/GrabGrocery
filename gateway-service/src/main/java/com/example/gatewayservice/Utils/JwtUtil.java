@@ -19,19 +19,15 @@ public class JwtUtil {
 	
 	public Mono<Boolean> validateJWT(String token) {
 		JwtDTO jwt = new JwtDTO(token);
-		
+
 		return authServiceClient
-		.webClientBuilder()
-		.build()
-		.post()
-		.uri("http://Auth-service/auth/validate/token")
-		.bodyValue(jwt)
-		.retrieve()
-		.bodyToMono(Boolean.class)
-		.map(val->{
-			if(!val) throw new RuntimeException("Invalid Token");
-			return val;
-		});
+					.webClientBuilder()
+					.build()
+					.post()
+					.uri("http://Auth-service/auth/validate/token")
+					.bodyValue(jwt)
+					.retrieve()
+					.bodyToMono(Boolean.class);
 	}
 
 }

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -41,6 +42,18 @@ public class ApplicationExceptionHandler {
 
 	@ExceptionHandler(value = BadCredentialsException.class)
 	public ResponseEntity<ExceptionDTO> exception(BadCredentialsException exe){
+		ExceptionDTO dto = new ExceptionDTO();
+		dto.setError("forbidden");
+		dto.setMessage(exe.getMessage());
+		dto.setTimeStamp(LocalDateTime.now());
+		dto.setStatusCode(500);
+		return ResponseEntity
+				.status(500)
+				.body(dto);
+	}
+	
+	@ExceptionHandler(value = AccessDeniedException.class)
+	public ResponseEntity<ExceptionDTO> exception1(AccessDeniedException exe){
 		ExceptionDTO dto = new ExceptionDTO();
 		dto.setError("forbidden");
 		dto.setMessage(exe.getMessage());

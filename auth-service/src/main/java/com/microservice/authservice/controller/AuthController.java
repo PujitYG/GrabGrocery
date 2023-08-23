@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.microservice.authservice.DTO.JwtDTO;
 import com.microservice.authservice.DTO.Token;
 import com.microservice.authservice.DTO.UserDetailsDTO;
 import com.microservice.authservice.services.AuthService;
@@ -51,8 +51,8 @@ public class AuthController {
 	
 	
 	@PostMapping("validate/token")
-	public Boolean validateToken(@RequestBody Token token) throws Exception {
-		return authService.validateToken(token.getJwt());
+	public Boolean validateToken(@RequestBody JwtDTO dto) throws Exception {
+		return authService.validateToken(dto.getJwtToken());
 	}
 
 }

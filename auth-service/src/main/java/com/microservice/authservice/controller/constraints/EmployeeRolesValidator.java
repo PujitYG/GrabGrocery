@@ -1,6 +1,8 @@
 package com.microservice.authservice.controller.constraints;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -17,14 +19,19 @@ public class EmployeeRolesValidator implements ConstraintValidator<EmployeeRoles
 	public boolean isValid(List<String> value, ConstraintValidatorContext context) {
 		System.out.println("INININ");
 		
-		List<String> roles = Stream.of(EmployeeRoles.values())
-				.map(val->val.toString()).collect(Collectors.toList());
+		Set<String> roles = Stream.of(EmployeeRoles.values())
+				.map(EmployeeRoles::toString).collect(Collectors.toSet());
 		
-		return value
-		.stream()
-		.allMatch(val->roles.contains(val));
+		return Optional.ofNullable(value)
+				.map(val -> val.size() > 0 && val
+						.stream()
+						.allMatch(roles::contains))
+				.orElse(Boolean.FALSE);
+		
 	}
 
-
+ 
 
 }
+
+

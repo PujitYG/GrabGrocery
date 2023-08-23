@@ -15,7 +15,7 @@ public class RouteConfig {
 						.path("/api/employee/**")
 						.uri("lb://Employee-Service"))
 				.route("r2",p->p
-						.path("/auth/**")
+						.path("/auth/**","/user/add")
 						.uri("lb://Auth-service"))
 				.build();
 	}

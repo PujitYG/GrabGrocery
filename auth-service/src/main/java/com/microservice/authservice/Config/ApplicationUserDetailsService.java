@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.microservice.authservice.DTO.ExceptionDTO;
 import com.microservice.authservice.Entity.UserAuthDetails;
+import com.microservice.authservice.Entity.Enums.EmployeeRoles;
 import com.microservice.authservice.repository.AuthRepository;
 
 @Component
@@ -26,25 +27,20 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 	
 	@Override
 	@Transactional
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Optional<UserAuthDetails> user = authRepository.findByUsernameIgnoreCase(username);
-		
-		if(!user.isPresent()) throw new UsernameNotFoundException("user Not found");
+	public UserDetails loadUserByUsername(final String username) throws UsernameNotFoundException {
+		final Optional<UserAuthDetails> user = authRepository.findByUsernameIgnoreCase(username);
 
-		UserAuthDetails userAuthDetails = user.get();
-	
-		Collection<? extends GrantedAuthority> roles= userAuthDetails.getRoles().stream()
-														.map(role->"ROLE_"+role.toString())
-														.map(SimpleGrantedAuthority::new)
-														.collect(Collectors.toList());
-		
-		
-		ApplicationUserDetails aud = new 
-				ApplicationUserDetails(userAuthDetails.getUsername(),userAuthDetails.getPassword(),
-						roles);
-		
-		
-		return aud;
+		return user.map(aUser -> {
+			return new ApplicationUserDetails(aUser.getUsername(),
+					aUser.getPassword(),
+					aUser.getRoles()
+					.stream()
+					.map(EmployeeRoles::toString)
+					.map(aRole -> "ROLE_" + aRole)
+					.map(SimpleGrantedAuthority::new)
+					.collect(Collectors.toList()));
+			
+		}).orElseThrow(() -> new UsernameNotFoundException("user Not found"));
 	}
 
 }
