@@ -8,4 +8,5 @@ import com.microservice.EmployeeService.Entity.Employee;
 @Repository
 public interface EmployeeRepository extends JpaRepository<Employee, String> {
 
+
 }

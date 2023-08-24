@@ -1,5 +1,6 @@
 package com.microservice.EmployeeService.Entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -8,10 +9,13 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 
 import com.microservice.EmployeeService.Entity.Enums.Shift;
 
@@ -20,13 +24,15 @@ public class Employee {
 	
 	@Id
 	@Column(name="EMPLOYEE_ID")
-	private String employeeId;
+	@SequenceGenerator(name = "EMPLOYEE_ID_GENERATOR", initialValue = 100, sequenceName = "EMPLOYEE_ID_SEQUENCE", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "EMPLOYEE_ID_GENERATOR")
+	private Integer employeeId;
 	
 	@Column(name="EMPLOYEE_NAME", nullable = false)
 	private String employeeName;
 	
-	@Column(name="DATE_OF_BIRTH", updatable = false, nullable = false)
-	private LocalDateTime dob;
+	@Column(name="DATE_OF_BIRTH", updatable = false, nullable = false, columnDefinition = "DATE")
+	private LocalDate dob;
 	
 	@Column(name="PHONE_NUMBER", nullable = false)
 	private String phoneNumber;
@@ -52,7 +58,7 @@ public class Employee {
 		super();
 	}
 
-	public Employee(String employeeId, String employeeName, LocalDateTime dob, String phoneNumber, String emailId,
+	public Employee(Integer employeeId, String employeeName, LocalDate dob, String phoneNumber, String emailId,
 			Integer salary, Shift shift, List<JobDescription> jobDescriptition, List<CustomerAided> customerAided) {
 		super();
 		this.employeeId = employeeId;
@@ -66,11 +72,11 @@ public class Employee {
 		this.customerAided = customerAided;
 	}
 
-	public String getEmployeeId() {
+	public Integer getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(String employeeId) {
+	public void setEmployeeId(Integer employeeId) {
 		this.employeeId = employeeId;
 	}
 
@@ -82,11 +88,11 @@ public class Employee {
 		this.employeeName = employeeName;
 	}
 
-	public LocalDateTime getDob() {
+	public LocalDate getDob() {
 		return dob;
 	}
 
-	public void setDob(LocalDateTime dob) {
+	public void setDob(LocalDate dob) {
 		this.dob = dob;
 	}
 
@@ -137,14 +143,6 @@ public class Employee {
 	public void setCustomerAided(List<CustomerAided> customerAided) {
 		this.customerAided = customerAided;
 	}
-
-	@Override
-	public String toString() {
-		return "Employee [employeeId=" + employeeId + ", employeeName=" + employeeName + ", dob=" + dob
-				+ ", phoneNumber=" + phoneNumber + ", emailId=" + emailId + ", salary=" + salary + ", shift=" + shift
-				+ ", jobDescriptition=" + jobDescriptition + ", customerAided=" + customerAided + "]";
-	}
-	
 	
 	
 

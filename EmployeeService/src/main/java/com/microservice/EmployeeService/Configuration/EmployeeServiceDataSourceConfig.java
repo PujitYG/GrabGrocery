@@ -54,7 +54,7 @@ public class EmployeeServiceDataSourceConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws SQLException {
 	    HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 	    vendorAdapter.setShowSql(true);
-//	    vendorAdapter.setGenerateDdl(true);
+	    vendorAdapter.setGenerateDdl(true);
 
 	    
 	    LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
@@ -69,25 +69,25 @@ public class EmployeeServiceDataSourceConfig {
 	    jpaProperties.put("hibernate.dialect","org.hibernate.dialect.Oracle12cDialect");
 	    
 	    factory.setJpaProperties(jpaProperties);
-	    // Configure the entity manager factory
+
 	    return factory;
 	}
     
 
     
-    private final Properties hibernateProperties() {
-        Properties hibernateProperties = new Properties();
-        hibernateProperties.setProperty(
-          "hibernate.hbm2ddl.auto", "update");
-        hibernateProperties.setProperty(
-          "hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
-        hibernateProperties.setProperty("hibernate.show_sql", "true");
+//    private final Properties hibernateProperties() {
+//        Properties hibernateProperties = new Properties();
+//        hibernateProperties.setProperty(
+//          "hibernate.hbm2ddl.auto", "update");
+//        hibernateProperties.setProperty(
+//          "hibernate.dialect", "org.hibernate.dialect.Oracle12cDialect");
+//        hibernateProperties.setProperty("hibernate.show_sql", "true");
 //        hibernateProperties.setProperty("hibernate.cache.use_second_level_cache", "true");
 //        hibernateProperties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
 //        hibernateProperties.setProperty("hibernate.cache.use_query_cache", "true");
         
-        return hibernateProperties;
-    }
+//        return hibernateProperties;
+//    }
 	
    @Bean
    public UserTransactionManager userTransactionManager() throws SystemException {
