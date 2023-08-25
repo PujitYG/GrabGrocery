@@ -39,5 +39,5 @@ eureka:
   register-with-eureka: true
   fetch-registry: true
   service-url:
-   defaultZone: http://localhost:5000/eureka
+   defaultZone: http://host.docker.internal:5000/eureka
  

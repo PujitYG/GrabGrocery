@@ -1,0 +1,53 @@
+###############################################################################
+cd C:\Users\pujit\Documents\SpringLearnMicroservices
+
+cd discovery-server
+
+mvn clean package
+
+docker build --tag=discovery-service .
+
+docker stop discovery-service-container
+
+docker rm discovery-service-container
+
+docker run -p5000:5000 --name discovery-service-container -d discovery-service
+
+cd ..
+
+###########################################################################
+cd C:\Users\pujit\Documents\SpringLearnMicroservices
+
+cd auth-service
+
+mvn clean package
+
+docker build --tag=auth-service .
+
+docker stop auth-service-container
+
+docker rm auth-service-container
+
+docker run -p9898:9898 --name auth-service-container -d auth-service
+
+cd ..
+
+#################################################################################
+cd C:\Users\pujit\Documents\SpringLearnMicroservices
+
+cd EmployeeService
+
+mvn clean package
+
+docker build --tag=employee-service .
+
+docker stop employee-service-container
+
+docker rm employee-service-container
+
+docker run -p9191:9191 --name employee-service-container -d employee-service
+
+cd ..
+
+#################################################################################
+
