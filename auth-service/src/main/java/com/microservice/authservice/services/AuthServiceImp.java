@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.microservice.authservice.DTO.Token;
+import com.microservice.authservice.DTO.UserAuthenticationDTO;
 import com.microservice.authservice.DTO.UserDetailsDTO;
 import com.microservice.authservice.Entity.UserAuthDetails;
 import com.microservice.authservice.Entity.Enums.EmployeeRoles;
@@ -40,7 +41,7 @@ public class AuthServiceImp implements AuthService {
 	
 
 	@Transactional
-	public Token generateToken(UserDetailsDTO userDetailsDTO) throws Exception {
+	public Token generateToken(UserAuthenticationDTO userDetailsDTO) throws Exception {
 		Optional<UserDetailsToken> userOptional = authRepository.getUserAddressToken(userDetailsDTO.getUsername());
 		
 		UserDetailsToken user = userOptional
@@ -54,18 +55,16 @@ public class AuthServiceImp implements AuthService {
 	}
 	
 	@Transactional
-	public boolean validateUser(UserDetailsDTO userDetailsDTO) throws Exception {
+	public boolean validateUser(UserAuthenticationDTO userDetailsDTO) throws Exception {
 		Boolean userAuthenticated=false;
 		Authentication auth = new UsernamePasswordAuthenticationToken(userDetailsDTO.getUsername(),userDetailsDTO.getPassword());
 		try {
 			userAuthenticated = authenticationManager.authenticate(auth).isAuthenticated();
 		}
-		catch (UsernameNotFoundException e) {
-			System.out.println("User not present "+userDetailsDTO.getUsername());
-		}
 		catch(BadCredentialsException e) {
-			String errorMessage = String.format("User %s provided bad password", userDetailsDTO.getUsername());
+			String errorMessage = String.format("User %s provided bad details", userDetailsDTO.getUsername());
 			System.out.println(errorMessage);
+			throw e;
 		}
 		return userAuthenticated;
 	}

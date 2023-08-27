@@ -16,8 +16,11 @@ public class RouteConfig {
 						.uri("lb://Employee-Service"))
 				.route("r2",p->p
 						.path("/auth/**","/user/add")
+						.filters(f -> f.circuitBreaker(config -> config.setName("CB-3")
+								.setFallbackUri("forward:/fallback")))
 						.uri("lb://Auth-service"))
 				.build();
 	}
+	
 
 }

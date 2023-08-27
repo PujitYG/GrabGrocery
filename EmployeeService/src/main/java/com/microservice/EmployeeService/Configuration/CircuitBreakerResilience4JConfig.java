@@ -36,10 +36,10 @@ public class CircuitBreakerResilience4JConfig {
 	        		.minimumNumberOfCalls(3)
 	        		.slidingWindowType(SlidingWindowType.COUNT_BASED)
 	        		.slidingWindowSize(5)
-	                .failureRateThreshold(60) // Customize as needed
-	                .waitDurationInOpenState(Duration.ofSeconds(5)) // Customize as needed
-	                .permittedNumberOfCallsInHalfOpenState(3) // Customize as needed
-	                .enableAutomaticTransitionFromOpenToHalfOpen()// Customize as needed
+	                .failureRateThreshold(60) 
+	                .waitDurationInOpenState(Duration.ofSeconds(5)) 
+	                .permittedNumberOfCallsInHalfOpenState(3)
+	                .enableAutomaticTransitionFromOpenToHalfOpen()
 	                .build();
 
 	        return circuitBreakerRegistry.circuitBreaker("supermarket-service",circuitBreakerConfig);

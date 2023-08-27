@@ -39,7 +39,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 //	}
 	
 	@Transactional(rollbackFor = IllegalArgumentException.class)
-	public boolean saveEmployee(EmployeeRegistrationDTO employee) throws BadRequestException {
+	public String saveEmployee(EmployeeRegistrationDTO employee) throws BadRequestException {
 		
 		if(employee==null) throw new BadRequestException("Bad Request");
 		
@@ -51,7 +51,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 			
 		employeeRepository.save(emp);
 		
-		return true;
+		String response = String
+				.format("Employee: %s with Id: %d Added sucessfully", emp.getEmployeeName(),emp.getEmployeeId());
+		
+		return response;
 			
 	}
 	

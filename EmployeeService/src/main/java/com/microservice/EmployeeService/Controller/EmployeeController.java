@@ -65,7 +65,7 @@ public class EmployeeController {
 		
 		if(employee==null) throw new BadRequestException("Invalid data. Please check your Request");
 		
-		Boolean value = employeeService.saveEmployee(employee);
+		String value = employeeService.saveEmployee(employee);
 		
 		EmployeeServiceResponseDTO response = employeeServiceUtil
 				.getEmployeeServiceResponseDTO(HttpStatus.ACCEPTED.value(), 

@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.microservice.authservice.DTO.Token;
+import com.microservice.authservice.DTO.UserAuthenticationDTO;
 import com.microservice.authservice.DTO.UserDetailsDTO;
 import com.microservice.authservice.Entity.UserAuthDetails;
 import com.microservice.authservice.Entity.Enums.EmployeeRoles;
@@ -20,10 +21,10 @@ public interface AuthService {
 
 	
 	@Transactional
-	public Token generateToken(UserDetailsDTO userDetailsDTO) throws Exception;
+	public Token generateToken(UserAuthenticationDTO userDetailsDTO) throws Exception;
 	
 	@Transactional
-	public boolean validateUser(UserDetailsDTO userDetailsDTO) throws Exception;
+	public boolean validateUser(UserAuthenticationDTO userDetailsDTO) throws Exception;
 	
 	
 	public boolean validateToken(String token);

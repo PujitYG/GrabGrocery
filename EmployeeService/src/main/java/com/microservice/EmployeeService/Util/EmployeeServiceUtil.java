@@ -12,7 +12,7 @@ public class EmployeeServiceUtil {
 	public EmployeeServiceResponseDTO getEmployeeServiceResponseDTO(Integer statusCode,
 			String status, Object data, String path) {
 		EmployeeServiceResponseDTO response = new EmployeeServiceResponseDTO();
-		response.setData(data);
+		response.setValue(data);
 		response.setPath(path);
 		response.setStatus(status);
 		response.setStatusCode(statusCode);

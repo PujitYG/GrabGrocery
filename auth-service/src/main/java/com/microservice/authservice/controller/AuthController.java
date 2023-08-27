@@ -2,6 +2,8 @@ package com.microservice.authservice.controller;
 
 
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.authservice.DTO.JwtDTO;
 import com.microservice.authservice.DTO.Token;
+import com.microservice.authservice.DTO.UserAuthenticationDTO;
 import com.microservice.authservice.DTO.UserDetailsDTO;
 import com.microservice.authservice.services.AuthService;
 import com.microservice.authservice.util.JWTUtil;
@@ -39,10 +42,12 @@ public class AuthController {
 	}
 	
 	@PostMapping("token")
-	public ResponseEntity<Token> authenticateUser(@RequestBody UserDetailsDTO dto) throws Exception {
+	public ResponseEntity<Token> authenticateUser(@RequestBody @Valid UserAuthenticationDTO dto) throws Exception {
+//		System.out.println(authService.validateUser(dto));
 		
-		if(!authService.validateUser(dto)) throw new BadCredentialsException("Please enter valid Details");
+		if(!authService.validateUser(dto)) throw new BadCredentialsException("Please check the details");
 		
+
 		
 		Token token = authService.generateToken(dto);
 
@@ -51,7 +56,7 @@ public class AuthController {
 	
 	
 	@PostMapping("validate/token")
-	public Boolean validateToken(@RequestBody JwtDTO dto) throws Exception {
+	public Boolean validateToken(@RequestBody @Valid JwtDTO dto) throws Exception {
 		return authService.validateToken(dto.getJwtToken());
 	}
 

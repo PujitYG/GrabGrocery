@@ -11,7 +11,7 @@ public class EmployeeServiceResponseDTO {
 	private String status;
 	private LocalDateTime timestamp;
 	private String path;
-	private Object data;
+	private Object value;
 	
 	
 	public EmployeeServiceResponseDTO() {
@@ -24,7 +24,7 @@ public class EmployeeServiceResponseDTO {
 		this.status = status;
 		this.timestamp = timestamp;
 		this.path = path;
-		this.data = data;
+		this.value = data;
 	}
 
 
@@ -68,13 +68,13 @@ public class EmployeeServiceResponseDTO {
 	}
 
 
-	public Object getData() {
-		return data;
+	public Object getValue() {
+		return value;
 	}
 
 
-	public void setData(Object data) {
-		this.data = data;
+	public void setValue(Object data) {
+		this.value = data;
 	}
 	
 	

@@ -43,12 +43,12 @@ public class ApplicationExceptionHandler {
 	@ExceptionHandler(value = BadCredentialsException.class)
 	public ResponseEntity<ExceptionDTO> exception(BadCredentialsException exe){
 		ExceptionDTO dto = new ExceptionDTO();
-		dto.setError("forbidden");
+		dto.setError("BAD REQUEST");
 		dto.setMessage(exe.getMessage());
 		dto.setTimeStamp(LocalDateTime.now());
-		dto.setStatusCode(500);
+		dto.setStatusCode(400);
 		return ResponseEntity
-				.status(500)
+				.status(400)
 				.body(dto);
 	}
 	

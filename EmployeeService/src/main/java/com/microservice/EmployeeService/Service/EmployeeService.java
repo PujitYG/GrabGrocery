@@ -5,6 +5,6 @@ import com.microservice.EmployeeService.Exception.BadRequestException;
 
 public interface EmployeeService {
 	
-	public boolean saveEmployee(EmployeeRegistrationDTO employee) throws Exception;
+	public String saveEmployee(EmployeeRegistrationDTO employee) throws Exception;
 
 }

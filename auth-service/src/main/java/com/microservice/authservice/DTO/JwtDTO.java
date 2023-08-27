@@ -1,8 +1,10 @@
 package com.microservice.authservice.DTO;
 
+import javax.validation.constraints.NotNull;
+
 public class JwtDTO {
 	
-	
+	@NotNull
 	private String jwtToken;
 	
 	public JwtDTO() {

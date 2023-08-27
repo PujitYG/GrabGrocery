@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionsHandler {
 	
 	
-	@ExceptionHandler(value = RuntimeException.class)
+	@ExceptionHandler(value = Exception.class)
 	public ResponseEntity<String> handleRuntime(Exception e){
 		
 		return ResponseEntity.status(HttpStatus.BAD_REQUEST)

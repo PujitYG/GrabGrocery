@@ -2,22 +2,19 @@ package com.microservice.authservice.DTO;
 
 import java.util.List;
 
-import javax.validation.constraints.Size;
+import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
-import org.springframework.validation.annotation.Validated;
-
-import com.microservice.authservice.Entity.Enums.EmployeeRoles;
 import com.microservice.authservice.controller.constraints.EmployeeRolesValidation;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 //@Validated
 public class UserDetailsDTO {
 	
+	@NotNull
 	private String username;
+	@NotNull
 	private String password;
+	@NotNull
 	private String email;
 	
 	@EmployeeRolesValidation
