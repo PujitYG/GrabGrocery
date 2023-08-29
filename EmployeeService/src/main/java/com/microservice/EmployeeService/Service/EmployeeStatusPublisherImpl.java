@@ -8,7 +8,7 @@ import com.microservice.EmployeeService.DTO.EmployeeRegistrationStatusEventDTO;
 public class EmployeeStatusPublisherImpl implements EmployeeStatusPublisher {
 	
 	public void publishEmployeeStatus(EmployeeRegistrationStatusEventDTO event) {
-		
+		return;
 	}
 
 }
