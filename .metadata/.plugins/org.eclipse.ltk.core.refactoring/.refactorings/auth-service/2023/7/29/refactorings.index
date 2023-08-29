@@ -1,5 +1,0 @@
-1689580978735	Rename package 'com.example.authservice'
-1689584282383	Rename type 'UserDetailsRepository'
-1689608333637	Encapsulate field 'timeStamp'
-1689609263875	Rename type 'InvalidCredentialException'
-1689609858885	Delete element

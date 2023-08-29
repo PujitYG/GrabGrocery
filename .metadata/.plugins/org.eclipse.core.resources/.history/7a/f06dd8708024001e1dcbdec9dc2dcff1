@@ -1,8 +1,0 @@
-package com.microservice.authservice.Config;
-
-
-import org.springframework.security.core.userdetails.UserDetails;
-
-public class ApplicationUserDetails extends UserDetails {
-
-}
