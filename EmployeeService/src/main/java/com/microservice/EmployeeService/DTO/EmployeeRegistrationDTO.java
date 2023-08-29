@@ -2,6 +2,7 @@ package com.microservice.EmployeeService.DTO;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.validation.constraints.NotNull;
 
@@ -12,6 +13,8 @@ import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateTimeDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateTimeSerializer;
+import com.microservice.EmployeeService.Entity.JobDescription;
+import com.microservice.EmployeeService.Entity.Enums.Shift;
 
 public class EmployeeRegistrationDTO {
 	
@@ -29,6 +32,15 @@ public class EmployeeRegistrationDTO {
 	private String phoneNumber;
 	@NotNull
 	private String emailId;
+	
+	@NotNull
+	private Integer salary;
+	
+	@NotNull
+	private Shift shift;
+	
+	@NotNull
+	private List<JobDescription> jobDescriptition;
 	
 	public EmployeeRegistrationDTO() {
 		super();
@@ -73,6 +85,31 @@ public class EmployeeRegistrationDTO {
 	public void setEmailId(String emailId) {
 		this.emailId = emailId;
 	}
+
+	public Integer getSalary() {
+		return salary;
+	}
+
+	public void setSalary(Integer salary) {
+		this.salary = salary;
+	}
+
+	public Shift getShift() {
+		return shift;
+	}
+
+	public void setShift(Shift shift) {
+		this.shift = shift;
+	}
+
+	public List<JobDescription> getJobDescriptition() {
+		return jobDescriptition;
+	}
+
+	public void setJobDescriptition(List<JobDescription> jobDescriptition) {
+		this.jobDescriptition = jobDescriptition;
+	}
+
 	
 	
 	

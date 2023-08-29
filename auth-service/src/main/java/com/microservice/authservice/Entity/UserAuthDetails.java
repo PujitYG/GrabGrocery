@@ -28,6 +28,9 @@ public class UserAuthDetails {
 	@Column(name="EMAIL")
 	private String email;
 	
+	@Column(name="ACTIVE")
+	private boolean active;
+	
 	@ElementCollection
 	@Enumerated(EnumType.STRING)
 	private List<EmployeeRoles> roles;
@@ -35,18 +38,6 @@ public class UserAuthDetails {
 	public UserAuthDetails() {
 		super();
 	}
-	
-
-	public UserAuthDetails(String username, String password, String email, List<EmployeeRoles> roles) {
-		super();
-		this.username = username;
-		this.password = password;
-		this.email = email;
-		this.roles = roles;
-	}
-
-
-
 
 	public String getUsername() {
 		return username;
@@ -71,20 +62,24 @@ public class UserAuthDetails {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
-	
 
-	public List<EmployeeRoles> getRoles() {
-		return this.roles;
+	public boolean isActive() {
+		return active;
 	}
 
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
-
+	public List<EmployeeRoles> getRoles() {
+		return roles;
+	}
 
 	public void setRoles(List<EmployeeRoles> roles) {
 		this.roles = roles;
 	}
+	
+	
 
 	
 

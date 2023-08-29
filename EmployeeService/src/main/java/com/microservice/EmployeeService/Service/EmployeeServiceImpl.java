@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 import com.microservice.EmployeeService.Client.SuperMarketServiceClient;
 import com.microservice.EmployeeService.DTO.EmployeeRegistrationDTO;
+import com.microservice.EmployeeService.DTO.EmployeeRegistrationStatusEventDTO;
 import com.microservice.EmployeeService.DTO.EmployeeServiceResponseDTO;
 import com.microservice.EmployeeService.Entity.Employee;
 import com.microservice.EmployeeService.Exception.BadRequestException;
 import com.microservice.EmployeeService.Model.EmployeeRepository;
+import com.microservice.EmployeeService.Service.Enums.EmployeeStatus;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
@@ -23,10 +25,13 @@ import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Autowired
-	SuperMarketServiceClient psc;	
+	private SuperMarketServiceClient psc;	
 	
 	@Autowired
-	EmployeeRepository employeeRepository;
+	private EmployeeRepository employeeRepository;
+	
+	@Autowired
+	private EmployeeStatusPublisher publisher;
 	
 	
 //	@CircuitBreaker(name= "supermarket-service", fallbackMethod = "doThis")
@@ -48,11 +53,23 @@ public class EmployeeServiceImpl implements EmployeeService {
 		emp.setDob(employee.getDob());
 		emp.setEmailId(employee.getEmailId());
 		emp.setPhoneNumber(employee.getPhoneNumber());
+		emp.setSalary(employee.getSalary());
+		emp.setJobDescriptition(employee.getJobDescriptition());
+		emp.setShift(employee.getShift());
 			
 		employeeRepository.save(emp);
 		
+		EmployeeRegistrationStatusEventDTO employeeEventDTO= new EmployeeRegistrationStatusEventDTO();
+		employeeEventDTO.setEmployeeId(emp.getEmployeeId());
+		employeeEventDTO.setPassword(employee.getPassword());
+		employeeEventDTO.setStatus(EmployeeStatus.CREATED);
+		employeeEventDTO.setEmployeeEmail(emp.getEmailId());
+		
+		publisher.publishEmployeeStatus(employeeEventDTO);
+		
+		
 		String response = String
-				.format("Employee: %s with Id: %d Added sucessfully", emp.getEmployeeName(),emp.getEmployeeId());
+				.format("Employee: %s registration has been initiated.", emp.getEmployeeName(),emp.getEmployeeId());
 		
 		return response;
 			

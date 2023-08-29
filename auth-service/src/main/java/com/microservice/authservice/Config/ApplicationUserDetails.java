@@ -21,12 +21,14 @@ public class ApplicationUserDetails implements UserDetails {
 	private static final long serialVersionUID = 1L;
 	private String username;
 	private String password;
+	private boolean enabled;
 	private Collection<? extends GrantedAuthority> authorities;
 	
-	public ApplicationUserDetails(String username,String password, Collection<? extends GrantedAuthority> roles) {
+	public ApplicationUserDetails(String username,String password, Collection<? extends GrantedAuthority> roles, boolean enabled) {
 		this.username=username;
 		this.password=password;
 		this.authorities=roles;
+		this.enabled=enabled;
 	}
 
 	@Override
@@ -68,7 +70,7 @@ public class ApplicationUserDetails implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return true;
+		return this.enabled;
 	}
 
 	public void setPassword(String password) {

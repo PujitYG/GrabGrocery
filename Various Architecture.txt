@@ -1,0 +1,2 @@
+SAGA PATTERN - choreography
+Tech used: Kafka alone

@@ -11,7 +11,7 @@ spring:
     properties:
       hibernate:
        dialect: org.hibernate.dialect.Oracle10gDialect
-       ddl-auto: update  
+       ddl-auto: update
   datasource:
    driverClassName: oracle.jdbc.OracleDriver
    url: jdbc:oracle:thin:@172.28.224.1:1521:xe

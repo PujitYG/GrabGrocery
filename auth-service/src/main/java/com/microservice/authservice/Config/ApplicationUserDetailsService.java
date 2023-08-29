@@ -38,7 +38,8 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 					.map(EmployeeRoles::toString)
 					.map(aRole -> "ROLE_" + aRole)
 					.map(SimpleGrantedAuthority::new)
-					.collect(Collectors.toList()));
+					.collect(Collectors.toList()),
+					aUser.isActive());
 			
 		}).orElseThrow(() -> new UsernameNotFoundException("user Not found"));
 	}
