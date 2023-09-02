@@ -58,15 +58,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 		emp.setShift(employee.getShift());
 			
 		employeeRepository.save(emp);
-		
-		EmployeeRegistrationStatusEventDTO employeeEventDTO= new EmployeeRegistrationStatusEventDTO();
-		employeeEventDTO.setEmployeeId(emp.getEmployeeId());
-		employeeEventDTO.setPassword(employee.getPassword());
-		employeeEventDTO.setStatus(EmployeeStatus.CREATED);
-		employeeEventDTO.setEmployeeEmail(emp.getEmailId());
-		
-		publisher.publishEmployeeStatus(employeeEventDTO);
-		
+				
+		publisher.publishEmployeeStatusCreation(emp, employee.getPassword());
 		
 		String response = String
 				.format("Employee: %s registration has been initiated.", emp.getEmployeeName(),emp.getEmployeeId());

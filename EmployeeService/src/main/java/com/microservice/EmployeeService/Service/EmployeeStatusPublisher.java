@@ -1,9 +1,9 @@
 package com.microservice.EmployeeService.Service;
 
-import com.microservice.EmployeeService.DTO.EmployeeRegistrationStatusEventDTO;
+import com.microservice.EmployeeService.Entity.Employee;
 
 public interface EmployeeStatusPublisher {
 	
-	public void publishEmployeeStatus(EmployeeRegistrationStatusEventDTO event);
+	public void publishEmployeeStatusCreation(Employee event, String... others);
 
 }

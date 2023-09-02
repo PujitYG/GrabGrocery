@@ -1,0 +1,4 @@
+C:\Users\pujit\Documents\kafka\bin\windows\zookeeper-server-start.bat "C:\Users\pujit\Documents\kafka\config\zookeeper.properties"
+
+C:\Users\pujit\Documents\kafka\bin\windows\kafka-server-start.bat "C:\Users\pujit\Documents\kafka\config\server.properties"
+
